@@ -1,7 +1,7 @@
-import { useMapEvents } from 'react-leaflet/hooks'
+import { useMap, useMapEvents } from 'react-leaflet/hooks'
 import axios from 'axios'
 import { Polygon } from 'react-leaflet/Polygon';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function ringCoordsHashToArray(ring) {
     return ring.map(function (latLng) {
@@ -12,6 +12,8 @@ function ringCoordsHashToArray(ring) {
 const purpleOptions = { color: 'purple' }
 
 export const DemoComponent = () => {
+
+    const map = useMap();
 
     const [shapeCoords, setShapeCoords] = useState(null);
 
@@ -53,6 +55,11 @@ export const DemoComponent = () => {
             triggerRequest(e.latlng)
         }
     })
+
+    useEffect(() => {
+        if (!shapeCoords) return;
+        map.fitBounds(shapeCoords);
+    }, [shapeCoords]);
 
     return shapeCoords ? <Polygon pathOptions={purpleOptions} positions={shapeCoords} /> : null;
 };
