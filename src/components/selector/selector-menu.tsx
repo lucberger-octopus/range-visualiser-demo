@@ -2,21 +2,7 @@ import styles from "./selector-menu.module.css";
 import carImage from "../../assets/cars/car.png";
 import type { Car } from "./types";
 import { useSelectorContext } from "./selector-context";
-
-const mockedCars: Car[] = [
-  {
-    name: "Car A",
-    range: 250000,
-  },
-  {
-    name: "Car B",
-    range: 300000,
-  },
-  {
-    name: "Car C",
-    range: 200000,
-  },
-];
+import { mockedCars } from "../../mocks";
 
 export default function SelectorMenu() {
   return (
@@ -31,10 +17,15 @@ export default function SelectorMenu() {
 }
 
 function CarOption({ car }: { car: Car }) {
-  const { selectCar } = useSelectorContext();
+  const { selectCar, car: selectedCar } = useSelectorContext();
 
   return (
-    <div className={styles.car} onClick={() => selectCar(car)}>
+    <div
+      className={`${styles.car} ${
+        car.name === selectedCar?.name ? styles.selected : ""
+      }`}
+      onClick={() => selectCar(car)}
+    >
       <img className={styles.image} src={carImage} />
       <div className={styles.details}>
         <div className={styles.name}>{car.name}</div>
