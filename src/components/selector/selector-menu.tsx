@@ -1,22 +1,20 @@
 import styles from "./selector-menu.module.css";
 import carImage from "../../assets/cars/car.png";
 import type { Car } from "./types";
+import { useSelectorContext } from "./selector-context";
 
 const mockedCars: Car[] = [
   {
     name: "Car A",
     range: 250,
-    price: "$30,000",
   },
   {
     name: "Car B",
     range: 300,
-    price: "$35,000",
   },
   {
     name: "Car C",
     range: 200,
-    price: "$25,000",
   },
 ];
 
@@ -33,9 +31,17 @@ export default function SelectorMenu() {
 }
 
 function CarOption({ car }: { car: Car }) {
+  const { selectCar } = useSelectorContext();
+
   return (
-    <div className={styles.car}>
+    <div className={styles.car} onClick={() => selectCar(car)}>
       <img className={styles.image} src={carImage} />
+      <div className={styles.details}>
+        <div className={styles.name}>{car.name}</div>
+        <div className={styles.stats}>
+          <div className={styles.stat}>Range: {car.range} miles</div>
+        </div>
+      </div>
     </div>
   );
 }

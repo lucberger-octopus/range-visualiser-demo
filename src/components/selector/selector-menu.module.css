@@ -25,7 +25,11 @@
 }
 
 .car {
+  color: rgba(0, 0, 0, 0.8);
+
   display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
   padding: 10px;
   border-radius: 15px;
 
@@ -43,4 +47,22 @@
   width: 60px;
   height: 40px;
   object-fit: contain;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  font-weight: 700;
+}
+
+.stats {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 5px;
+  font-family: -apple-system, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }

@@ -11,6 +11,7 @@ export function SelectorContextContainer({
   const [selectedCar, setSelectedCar] = useState<Car | undefined>(undefined);
 
   const handleSelectCar = useCallback((car: Car) => {
+    console.log("Selected car:", car);
     setSelectedCar(car);
   }, []);
 
