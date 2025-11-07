@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Polygon } from 'react-leaflet/Polygon';
 import { useCallback, useEffect, useState } from 'react';
 import { useSelectorContext } from './selector/selector-context';
+import { Marker } from 'react-leaflet/Marker';
 
 
 function ringCoordsHashToArray(ring) {
@@ -74,7 +75,10 @@ export const DemoComponent = () => {
 
     return (
         <>
-            {shapeCoords ? <Polygon pathOptions={{color: '#2D008C'}} positions={shapeCoords} /> : null}
+            {shapeCoords ? (<>
+                <Polygon pathOptions={{color: '#2D008C'}} positions={shapeCoords} />
+                <Marker position={[coords.lat, coords.lng]} />
+                </>) : null}
         </>
     );
 };
