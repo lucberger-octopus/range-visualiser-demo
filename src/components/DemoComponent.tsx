@@ -30,7 +30,7 @@ export const DemoComponent = () => {
                     transportation: {
                         type: "driving"
                     },
-                    departure_time: "2025-11-07T09:00:00Z"
+                    departure_time: new Date().toISOString()
                 }
             ]
         }, {
