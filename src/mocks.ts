@@ -1,20 +1,28 @@
 import type { Car } from "./components/selector/types";
+import citreonImage from "./assets/cars/citroen.png";
+import ranaultImage from "./assets/cars/renault.png";
+import bydImage from "./assets/cars/byd.png";
+import leapImage from "./assets/cars/leap.png";
 
 export const mockedCars: Car[] = [
   {
-    name: "Car A",
+    name: "Citroen e-C3",
     range: 250000,
+    image: citreonImage,
   },
   {
-    name: "Car B",
+    name: "Renault 5 E-TECH",
     range: 300000,
+    image: ranaultImage,
   },
   {
-    name: "Car C",
-    range: 200000,
+    name: "BYD Atto 3",
+    range: 400000,
+    image: bydImage,
   },
   {
-    name: "Car D",
+    name: "Leapmotor T03",
     range: 50000,
+    image: leapImage,
   },
 ];

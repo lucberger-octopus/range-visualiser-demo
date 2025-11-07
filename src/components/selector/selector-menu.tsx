@@ -1,5 +1,4 @@
 import styles from "./selector-menu.module.css";
-import carImage from "../../assets/cars/car.png";
 import type { Car } from "./types";
 import { useSelectorContext } from "./selector-context";
 import { mockedCars } from "../../mocks";
@@ -26,7 +25,7 @@ function CarOption({ car }: { car: Car }) {
       }`}
       onClick={() => selectCar(car)}
     >
-      <img className={styles.image} src={carImage} />
+      <img className={styles.image} src={car.image} />
       <div className={styles.details}>
         <div className={styles.name}>{car.name}</div>
         <div className={styles.stats}>
