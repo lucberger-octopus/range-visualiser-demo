@@ -6,15 +6,15 @@ import { useSelectorContext } from "./selector-context";
 const mockedCars: Car[] = [
   {
     name: "Car A",
-    range: 250,
+    range: 250000,
   },
   {
     name: "Car B",
-    range: 300,
+    range: 300000,
   },
   {
     name: "Car C",
-    range: 200,
+    range: 200000,
   },
 ];
 
@@ -39,7 +39,7 @@ function CarOption({ car }: { car: Car }) {
       <div className={styles.details}>
         <div className={styles.name}>{car.name}</div>
         <div className={styles.stats}>
-          <div className={styles.stat}>Range: {car.range} miles</div>
+          <div className={styles.stat}>Range: {car.range / 1000}km</div>
         </div>
       </div>
     </div>

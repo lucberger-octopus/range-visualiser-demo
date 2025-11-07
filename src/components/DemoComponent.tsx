@@ -2,6 +2,7 @@ import { useMap, useMapEvents } from 'react-leaflet/hooks'
 import axios from 'axios'
 import { Polygon } from 'react-leaflet/Polygon';
 import { useEffect, useState } from 'react';
+import { useSelectorContext } from './selector/selector-context';
 
 function ringCoordsHashToArray(ring) {
     return ring.map(function (latLng) {
@@ -12,6 +13,8 @@ function ringCoordsHashToArray(ring) {
 const purpleOptions = { color: 'purple' }
 
 export const DemoComponent = () => {
+
+    const { car } = useSelectorContext();
 
     const map = useMap();
 
@@ -26,7 +29,7 @@ export const DemoComponent = () => {
                         lat: coords.lat,
                         lng: coords.lng
                     },
-                    travel_distance: 10000,
+                    travel_distance: car?.range || 0,
                     transportation: {
                         type: "driving"
                     },
