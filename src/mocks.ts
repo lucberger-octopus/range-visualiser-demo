@@ -7,7 +7,7 @@ import leapImage from "./assets/cars/leap.png";
 export const mockedCars: Car[] = [
   {
     name: "Citroen e-C3",
-    range: 250000,
+    range: 150000,
     image: citreonImage,
   },
   {
