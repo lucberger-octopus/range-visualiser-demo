@@ -19,13 +19,11 @@ export const DemoComponent = () => {
 
   const [shapeCoords, setShapeCoords] = useState<number[][][][] | null>(null);
   const [coords, setCoords] = useState<LatLng | null>(null);
-  const [loading, setLoading] = useState(false);
 
   const triggerRequest = useCallback(
     async (coords: LatLng) => {
       if (!car) return;
 
-      setLoading(true);
       const response = await axios.post<{
         results: {
           shapes: {
@@ -72,7 +70,6 @@ export const DemoComponent = () => {
       });
 
       setShapeCoords(shapesCoords);
-      setLoading(false);
     },
     [car]
   );
